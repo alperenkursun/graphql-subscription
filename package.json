@@ -1,0 +1,21 @@
+{
+  "name": "graphql-server-create",
+  "version": "1.0.0",
+  "main": "data.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "graphql": "^16.10.0",
+    "graphql-tag": "^2.12.6",
+    "nanoid": "^5.1.5"
+  }
+}

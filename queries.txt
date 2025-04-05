@@ -1,0 +1,267 @@
+# EVENT OPERATIONS
+query getAllEvents {
+  events {
+    id
+    title
+    desc
+    user {
+      username
+    }
+    participants {
+      id
+      event_id
+    }
+    location {
+      id
+      name
+      lng
+    }
+  }
+}
+
+query getEvent {
+  event(id: "1") {
+    id
+    title
+    desc
+    date
+    user {
+      username
+    }
+    participants {
+      id
+      event_id
+    }
+    location {
+      id
+      name
+      lng
+    }
+  }
+}
+
+mutation createEvent {
+  createEvent(data: {title: "Event Ipsum",desc: "Lorem Description", date: "20.10.2025",from: "lorem",to: "ipsum",location_id: "1",user_id: "2"}) {
+    title
+    desc
+    date
+  }
+}
+
+mutation UpdateEvent {
+  updateEvent(
+    id: "1",
+    data: {
+      title: "Event Ipsum",
+      desc: "Lorem Description", 
+      date: "2025-10-20",  
+      from: "10:00",     
+      to: "12:00",      
+      location_id: "1",
+      user_id: "2"
+    }
+  ) {
+    id
+    title
+    desc
+    date
+    from
+    to
+  }
+}
+
+mutation DeleteEvent {
+  deleteEvent(id: "1") {
+    id
+    title
+  }
+}
+
+mutation DeleteAllEvents {
+  deleteAllEvents {
+    count
+  }
+}
+
+# LOCATION OPERATIONS
+query getAllLocations {
+  locations {
+    id
+    name
+    desc
+  } 
+}
+
+query getLocation {
+  location(id: "1") {
+    id
+    name
+    desc
+    lat
+    lng
+  }
+}
+
+mutation createLocation {
+  createLocation(data: {name: "Location Ipsum", desc: "Lorem Description", lat: 41.0082, lng: 28.9784}) {
+    id
+    name
+    desc
+  }
+}
+
+mutation UpdateLocation {
+  updateLocation(
+    id: "1",
+    data: {
+      name: "Updated Location",
+      desc: "Updated Description",
+      lat: 41.0083,
+      lng: 28.9785
+    }
+  ) {
+    id
+    name
+    desc
+    lat
+    lng
+  }
+}
+
+mutation DeleteLocation {
+  deleteLocation(id: "1") {
+    id
+    name
+  }
+}
+
+mutation DeleteAllLocations {
+  deleteAllLocations {
+    count
+  }
+}
+
+# USER OPERATIONS
+query getAllUsers {
+  users {
+    id
+    username
+    email
+    events {
+      id
+      desc
+    }
+  } 
+}
+
+query getUser {
+  user(id: "1") {
+    id
+    username
+    email
+    events {
+      id
+      desc
+    }
+  }
+}
+
+mutation createUser {
+  createUser(data: {username: "user_ipsum", email: "user@example.com"}) {
+    id
+    username
+    email
+  }
+}
+
+mutation UpdateUser {
+  updateUser(
+    id: "1",
+    data: {
+      username: "updated_user",
+      email: "updated@example.com"
+    }
+  ) {
+    id
+    username
+    email
+  }
+}
+
+mutation DeleteUser {
+  deleteUser(id: "1") {
+    id
+    username
+  }
+}
+
+mutation DeleteAllUsers {
+  deleteAllUsers {
+    count
+  }
+}
+
+# PARTICIPANT OPERATIONS
+query getAllParticipants {
+  participants {
+    id
+    event_id
+    user_id
+    user {
+      username
+    }
+    event {
+      title
+    }
+  } 
+}
+
+query getParticipant {
+  participant(id: "1") {
+    id
+    event_id
+    user_id
+    user {
+      username
+    }
+    event {
+      title
+    }
+  }
+}
+
+mutation createParticipant {
+  createParticipant(data: {user_id: "1", event_id: "1"}) {
+    id
+    event_id
+    user_id
+  }
+}
+
+mutation UpdateParticipant {
+  updateParticipant(
+    id: "1",
+    data: {
+      user_id: "2",
+      event_id: "3"
+    }
+  ) {
+    id
+    event_id
+    user_id
+  }
+}
+
+mutation DeleteParticipant {
+  deleteParticipant(id: "1") {
+    id
+    event_id
+    user_id
+  }
+}
+
+mutation DeleteAllParticipants {
+  deleteAllParticipants {
+    count
+  }
+}
