@@ -4,7 +4,7 @@ GraphQL Exercise
 
 ---
 
-<!-- ![gsimg](gs.webp) -->
+![gsimg](gs.webp)
 
 [Patika GraphQL Homework-3](https://academy.patika.dev/courses/graphql/odev-03)
 
